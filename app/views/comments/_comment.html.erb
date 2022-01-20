@@ -1,0 +1,4 @@
+<div id="<%= dom_id(comment) %>">
+  <%= comment.content %>
+  <%= button_to "Destroy this comment", [comment.post, comment], method: :delete %>
+</div>
