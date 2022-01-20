@@ -1,9 +1,27 @@
 class CommentsController < ApplicationController
   before_action :set_post
 
+  # def create
+  #   @comment = @post.comments.create comment_params
+  #   if @comment.errors.any?
+  #     render "posts/show"
+  #   else
+  #     redirect_to @post
+  #   end
+  # end
+
   def create
-    @post.comments.create comment_params
-    redirect_to @post
+    @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to post_path(@post), notice: "Comment was successfully created." }
+        format.json { render :show, status: :created, location: @comment }
+      else
+        format.html { render "posts/show", status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

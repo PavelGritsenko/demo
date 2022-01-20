@@ -2,8 +2,9 @@
 
 <p style="color: green"><%= notice %></p>
 
+<cite>Author: <%= @post.user.email %></cite>
 <%= render @post %>
-<%= render "posts/comments", post: @post %>
+<%= render "posts/comments" %>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
