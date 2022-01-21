@@ -3,8 +3,8 @@
 <p style="color: green"><%= notice %></p>
 
 <cite>Author: <%= @post.user.email %></cite>
+
 <%= render @post %>
-<%= render "posts/comments" %>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
@@ -12,3 +12,6 @@
 
   <%= button_to "Destroy this post", @post, method: :delete %>
 </div>
+
+
+<%= render "posts/comments" %>
