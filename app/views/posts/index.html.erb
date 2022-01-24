@@ -3,7 +3,7 @@
 <h1>Posts</h1>
 
 <div id="posts">
-  <% @past_posts.each do |post| %>
+  <% @posts.each do |post| %>
     <% if @user.present?%>
       <cite>Author: <%= post.user.email %></cite>
     <% end %>
