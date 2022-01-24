@@ -1,8 +1,10 @@
-<div id="<%= dom_id(comment) %>">
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.user.email %>
-  </p>
-  <%= comment.content %>
-  <%= button_to "Destroy this comment", [comment.post, comment], method: :delete %>
-</div>
+<% unless comment.errors.any? %>
+  <div id="<%= dom_id(comment) %>">
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.user.email %>
+    </p>
+    <%= comment.content %>
+    <%= button_to "Destroy this comment", [comment.post, comment], method: :delete %>
+  </div>
+<% end %>

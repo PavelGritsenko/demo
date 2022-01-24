@@ -2,13 +2,13 @@ class CommentsController < ApplicationController
   before_action :set_post
 
   # def create
-  #   @comment = @post.comments.create comment_params
+  #   @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
   #   if @comment.errors.any?
-  #     render "posts/show"
-  #   else
   #     redirect_to @post
+  #   else
+  #     render "posts/show"
   #   end
-  # end
+  # end  
 
   def create
     @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
