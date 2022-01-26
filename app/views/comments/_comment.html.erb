@@ -2,7 +2,7 @@
   <div id="<%= dom_id(comment) %>">
     <p>
       <strong>Commenter:</strong>
-      <%= comment.user.email %>
+      <%= comment.user.name %>
     </p>
     <%= comment.content %>
     <%= button_to "Destroy this comment", [comment.post, comment], method: :delete %>
