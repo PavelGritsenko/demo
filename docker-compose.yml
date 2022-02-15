@@ -30,12 +30,16 @@ services:
       - backend
 
   elasticsearch:
-    image: elasticsearch:7.3.0
-    restart: always
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
+    environment:
+      network.host: "0.0.0.0"
+      http.port: "9200"
+      transport.tcp.port: "9300"
+    volumes:
+      - ./.data/elastic:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
-    volumes:
-      - elasticsearch:/usr/share/elasticsearch/data
+      - "9300:9300"
     networks:
       - backend
 
@@ -47,6 +51,9 @@ services:
       - "3000:3000"
     volumes:
       - .:/my-app
+    environment:
+      ELASTICSEARCH_HOST: "elasticsearch"
+      ELASTICSEARCH_PORT: "9200"
     networks:
       - backend
 

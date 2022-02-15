@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  include Searchable
+
   has_many :comments, dependent: :destroy
   belongs_to :user
 
