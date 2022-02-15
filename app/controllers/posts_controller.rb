@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @pagy, @posts = pagy(Post.past_week.desc, items: 3)
+    @pagy, @posts = pagy(Post.desc, items: 3)
   end
 
   # GET /posts/1 or /posts/1.json
