@@ -1,6 +1,8 @@
-<%= form_with url: "/search", method: :get do |form| %>
-  <%= form.label :query, "Search for:" %>
-  <%= form.text_field :query %>
-  <%= form.submit "Search" %>
-<% end %>
+ <%= form_with url: posts_path, method: :get do |form| %>
+    <%= form.text_field :term, placeholder: 'Search' %>
+    <%= link_to 'Clear', root_url %>
+    <%= form.submit 'Search' %>
+<% end %> 
+
+
 

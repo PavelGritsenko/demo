@@ -3,7 +3,7 @@
 <h1>Posts</h1>
 
 <div id="posts">
-  <% @posts.each do |post| %>
+  <% @searched_posts.each do |post| %>
     <%# if @user.present?%>
       <cite>Author: <%= post.user.name %></cite>
     <%# end %>
@@ -16,6 +16,5 @@
   <% end %>
 </div>
 
+<%= paginate @searched_posts %>
 
-
-<%== pagy_nav(@pagy) %>

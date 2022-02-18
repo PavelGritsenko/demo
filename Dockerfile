@@ -14,6 +14,8 @@ EXPOSE 3000
 
 RUN bundle install
 
+RUN bundle update
+
 COPY . /my-app
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
