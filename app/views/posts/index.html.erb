@@ -4,9 +4,7 @@
 
 <div id="posts">
   <% @searched_posts.each do |post| %>
-    <%# if @user.present?%>
       <cite>Author: <%= post.user.name %></cite>
-    <%# end %>
     <%= render post %>
     <% if user_signed_in? %>
       <p>

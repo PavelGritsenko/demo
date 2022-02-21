@@ -4,17 +4,15 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     search = params[:term].present? ? params[:term] : nil
-    # @searched_posts = search ? Post.search(search) : Post.all.order(created_at: :desc).page(params[:page])
     @searched_posts = if search
-      Post.search search, page: params[:page], per_page: 3
-    else
-      Post.all.order(created_at: :desc).page(params[:page])
-    end
+                        Post.search search, page: params[:page], per_page: 3
+                      else
+                        Post.all.order(created_at: :desc).page(params[:page])
+                      end
   end
 
   # GET /posts/1 or /posts/1.json
-  def show
-  end
+  def show; end
 
   # GET /posts/new
   def new
@@ -22,8 +20,7 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /posts or /posts.json
   def create
