@@ -1,0 +1,13 @@
+<section id="all-links">
+  <h2><%= @user.name %></h2>
+  <% if @user.id == current_user.id %>
+    <h3>Hi!</h3>
+  <% elsif current_user.followees.include?(@user) %>
+    <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST" %></h5>
+  <% else %>
+    <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
+  <% end%>
+  <%= link_to 'Followers', user_followers_path(@user) %>
+  <%= link_to 'Following', user_followees_path(@user) %>
+  <br>
+</section>
