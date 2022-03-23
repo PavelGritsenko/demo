@@ -2,14 +2,12 @@
 
 <h1>Posts</h1>
 
-<div id="posts">
+<div>
   <% @searched_posts.each do |post| %>
       <cite>Author: <%= post.user.name %></cite>
     <%= render post %>
     <% if user_signed_in? %>
-      <p>
-        <%= link_to "Show this post", post %>
-      </p>
+      <p><%= link_to "Show this post", post, class: "btn btn-primary mt-2" %></p>
     <% end %>
   <% end %>
 </div>

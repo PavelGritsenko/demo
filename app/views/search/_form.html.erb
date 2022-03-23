@@ -1,8 +1,15 @@
- <%= form_with url: posts_path, method: :get do |form| %>
-    <%= form.text_field :term, placeholder: 'Search' %>
-    <%= link_to 'Clear', root_url %>
-    <%= form.submit 'Search' %>
+<%= form_with url: posts_path, method: :get do |form| %>
+  <div class="d-flex align-items-center ">
+     <div class="col-auto me-2">
+      <%= form.text_field :term, placeholder: 'Search', class: "form-control" %>
+     </div>
+     <div class="col-auto me-2">
+      <%= link_to 'Clear', root_url, class: "btn btn-outline-primary" %>
+     </div>
+     <div class="col-auto">
+      <%= form.submit 'Search', class: "btn btn-primary" %>
+     </div>
+  </div>
 <% end %>
-
 
 

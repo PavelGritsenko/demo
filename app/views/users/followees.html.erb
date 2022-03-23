@@ -1,7 +1,6 @@
 <br>
 <ul>
-  <% @user.followers.each do |user| %>
+  <% @user.followees.each do |user| %>
     <li><%= user.name %></li>
   <% end %>
 </ul>
-
