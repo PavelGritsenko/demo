@@ -30,7 +30,6 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
-gem 'sidekiq'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -57,6 +56,16 @@ gem 'kaminari'
 gem "searchkick"
 
 gem 'whenever', require: false
+
+gem 'rake', '~> 13.0', '>= 13.0.6'
+
+gem 'sidekiq'
+
+gem 'redis', '~> 4.6'
+
+gem 'letter_opener'
+
+gem 'elasticsearch', '~> 7.13'
 
 
 group :development, :test do
